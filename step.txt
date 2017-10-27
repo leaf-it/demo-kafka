@@ -1,0 +1,28 @@
+前期测试准备:
+zookeeper安装，kafka安装
+kafka:
+1.创建topic
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic demo
+2.创建producer
+kafka-console-producer.bat --broker-list localhost:9092 --topic demo
+3.创建consumer
+kafka-console-consumer.bat --zookeeper localhost:2181 --topic demo
+4.查看kafka topic
+kafka-list-topic.bat --zookeeper localhost:2181
+代码部分：
+1.在项目中pom.xml添加
+<dependencies>
+    <dependency>
+        <groupId>org.apache.kafka</groupId>
+        <artifactId>kafka_2.11</artifactId>
+        <version>0.11.0.1</version>
+    </dependency>
+</dependencies>
+2.代码如例子中。
+3.启动，程序成功。
+
+
+
+
+
+
