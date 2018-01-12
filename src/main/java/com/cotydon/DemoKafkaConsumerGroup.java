@@ -21,17 +21,15 @@ public class DemoKafkaConsumerGroup {
             e.printStackTrace();
         }
         KafkaConsumer consumer = new KafkaConsumer<String, String>(props, new StringDeserializer(), new StringDeserializer());
-        consumer.subscribe(Arrays.asList("demo"));
+        consumer.subscribe(Arrays.asList("demo2"));
         while (true) {
             //每次取100条信息
             ConsumerRecords<String, String> records = consumer.poll(100);
-
             for (ConsumerRecord<String, String> record : records)
                 if(records.count()!=0) {
                     System.out.printf("offset = %d, key = %s, value = %s", record.offset(), record.key(), record.value());
                     System.out.println(records.count());
                 }
-
         }
     }
 }

@@ -1,10 +1,13 @@
 package com.cotydon;
 
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TranslationKafkaConfig {
+public class KafkaConfig {
     @Value("${saas.translation.enable:false}")
     String startTranslationFlag;
     @Value("${saas.translation.bootstrap.servers}")
@@ -75,4 +78,5 @@ public class TranslationKafkaConfig {
     public void setOffSet(String offSet) {
         this.offSet = offSet;
     }
+
 }
